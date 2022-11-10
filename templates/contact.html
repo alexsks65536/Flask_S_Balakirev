@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+<form action="/contact" method="post" class="form-contact">
+    <div class="form_settings">
+        <p><span>Имя: </span><input class="contact" type="text" name="username" value="" required /></p>
+        <p><span>Email: </span><input class="contact" type="text" name="email" value="" required /></p>
+        <p><span>Сообщение: </span>
+        <textarea class="contact textarea" name="message" rows="7" cols="40"></textarea></p>
+        <p><input class="submit" type="submit" value="Отправить"></p>
+    </div>
+</form>
+
+{% endblock %}

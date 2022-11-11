@@ -1,7 +1,7 @@
-from flask import Flask, render_template, url_for, request, flash
+from flask import Flask, render_template, url_for, request, flash, session, redirect, abort
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'sdfas609a870987098tyoflcxd'
+app.config['SECRET_KEY'] = 'oIVpBhUCgYEAzd2qlJTnDkiVe7rAlpXZ9I8GqD5n3A'
 
 menu = [{"name": "Установка", "url": "install-flask"},
         {"name": "Первое приложение", "url": "first-app"},
@@ -24,6 +24,8 @@ def about():
 
 @app.route("/profile/<username>")  # int: float: path:
 def profile(username):
+    if 'userLogged' not in session or session['userLogged'] != username:
+        abort(401)
     return f"Пользователь: {username}"
 
 
@@ -37,6 +39,21 @@ def contact():
         print(request.form)
     print(url_for('contact'))
     return render_template('contact.html', title='Обратная связь', menu=menu)
+
+
+@app.route("/login", methods=['POST', 'GET'])
+def login():
+    if 'userLogged' in session:
+        return redirect(url_for('profile', username=session['userLogged']))
+    elif request.method == 'POST' and request.form['username'] == "alexsks" and request.form['psw'] == "1234":
+        session['userLogged'] = request.form['username']
+        return redirect(url_for('profile', username=session['userLogged']))
+    return render_template('login.html', title='Авторизация', menu=menu)
+
+
+@app.errorhandler(404)
+def pageNotFound(error):
+    return render_template('page404.html', title='Страница не найдена', menu=menu), 404
 
 
 if __name__ == "__main__":

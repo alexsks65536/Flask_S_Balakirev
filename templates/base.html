@@ -1,7 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
+
 <head>
-    <meta charset="UTF-8">
     {% block title  -%}
     {% if title %}
         <title>Про Flask - {{ title }}</title>
@@ -9,21 +9,94 @@
         <title>Про Flask</title>
     {% endif %}
     {% endblock %}
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
 </head>
+
 <body>
-    {% block content -%}
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="/">Flask<span class="logo_colour">Framework</span></a>
+          <img class="logo" scr="css/Flask_logo.png">
+          </h1>
+          <h2>Flask. Основы микрофреймворка</h2>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
         {%- block mainmenu -%}
             <ul>
                 {% for m in menu -%}
-                <li>{{ m }}</li>
+                <li><a href="{{ m.url }}">{{ m.name }}</a> </li>
                 {% endfor -%}
             </ul>
         {%- endblock mainmenu -%}
-        {% if title -%}
-            <h1>{{ title }}</h1>
-        {% else -%}
-            <h1>Про Flask</h1>
-        {% endif -%}
-    {% endblock %}
+        </ul>
+      </div>
+    </div>
+    <div id="content_header"></div>
+    <div id="site_content">
+      <div id="sidebar_container">
+        <div class="sidebar">
+          <div class="sidebar_top"></div>
+          <div class="sidebar_item">
+            <!-- insert your sidebar items here -->
+            <h3>Latest News</h3>
+            <h4>New Website Launched</h4>
+            <h5>January 1st, 2010</h5>
+            <p>2010 sees the redesign of our website.....&nbsp;<a href="#">read more</a></p>
+          </div>
+          <div class="sidebar_base"></div>
+        </div>
+        <div class="sidebar">
+          <div class="sidebar_top"></div>
+          <div class="sidebar_item">
+            <h3>Useful Links</h3>
+            <ul>
+              <li><a href="#">link 1</a></li>
+              <li><a href="#">link 2</a></li>
+              <li><a href="#">link 3</a></li>
+              <li><a href="#">link 4</a></li>
+            </ul>
+          </div>
+          <div class="sidebar_base"></div>
+        </div>
+        <div class="sidebar">
+          <div class="sidebar_top"></div>
+          <div class="sidebar_item">
+            <h3>Search</h3>
+            <form method="post" action="#" id="search_form">
+              <p>
+                <input class="search" type="text" name="search_field" value="Enter keywords....." />
+                <input name="search" type="image" style="border: 0; margin: 0 0 -9px 5px;" src="style/search.png" alt="Search" title="Search" />
+              </p>
+            </form>
+          </div>
+          <div class="sidebar_base"></div>
+        </div>
+      </div>
+      <div id="content">
+        {% block content -%}
+            {% if title -%}
+                <h1>{{ title }}</h1>
+            {% else -%}
+                <h1>Про Flask</h1>
+            {% endif -%}
+        {% endblock %}
+      </div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+      <p><a href="index.html">Home</a> | <a href="examples.html">Examples</a> | <a href="page.html">A Page</a> | <a href="another_page.html">Another Page</a> | <a href="contact.html">Contact Us</a></p>
+      <p>Copyright &copy; simplestyle_6 | <a href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a href="http://www.html5webtemplates.co.uk">Free CSS Templates</a></p>
+    </div>
+    <p>&nbsp;</p>
+  </div>
 </body>
 </html>

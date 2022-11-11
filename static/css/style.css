@@ -111,6 +111,12 @@ ol li
 #logo_text a:hover .logo_colour
 { color: #FFF;}
 
+.logo {
+    background: #6F655F url(Flask_logo.png)
+    background-position: left bottom; /* Положение фона */
+    background-repeat: repeat-no;
+}
+
 #logo_text h2
 { font-size: 120%;
   padding: 4px 0 0 0;

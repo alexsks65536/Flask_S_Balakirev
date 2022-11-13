@@ -7,8 +7,8 @@
 <ul class="">
     {% for p in posts %}
     <li>
-        <p class=""><a href="{{ url_for('showPost', id_post=p.id) }}">{{p.title}}</a></p>
-        <p class="">{{ p.text[:50]}}</p>
+        <p class=""><a href="{{ url_for('showPost', alias=p.url) }}">{{p.title}}</a></p>
+        <p class="">{{ p.text[:50] | striptags }} ... </p>
     </li>
     {% endfor %}
 </ul>

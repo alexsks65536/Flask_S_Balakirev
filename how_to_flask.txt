@@ -1,0 +1,9 @@
+Flask - микрофреймворк
+1. установка: pip install flask
+2. flsite.py - логика работы
+3. static  - хранение статических файлов /css, /js, /images
+4. templates - хранение шаблонов сайта base.html, index.html и т.д.
+5. FDataBase.py - содержит класс FDataBase, который содержит методы для работы с БД
+6. flsite.db - файл базы данных dbsql3
+7. sql_db.sql - файл запросов для первоначального создания БД
+8. как создать Базу данных. В консоли вызываем класс: from flsite import create_db, затем: create_db()

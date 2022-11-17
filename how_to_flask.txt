@@ -7,3 +7,5 @@ Flask - микрофреймворк
 6. flsite.db - файл базы данных dbsql3
 7. sql_db.sql - файл запросов для первоначального создания БД
 8. как создать Базу данных. В консоли вызываем класс: from flsite import create_db, затем: create_db()
+9. Использование WTForms: pip install flask_wtf
+10. pip install email-validator

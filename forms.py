@@ -7,7 +7,7 @@ class LoginForm(FlaskForm):
     email = StringField("Email: ", validators=[Email("Некорректный email")])
     psw = PasswordField("Пароль: ", validators=[DataRequired(),
                                                 Length(min=4, max=100, message="Пароль должен быть от 4 до 100 символов")])
-    remember = BooleanField("Запомнить", default = False)
+    remember = BooleanField("Запомнить", default=False)
     submit = SubmitField("Войти")
 
 

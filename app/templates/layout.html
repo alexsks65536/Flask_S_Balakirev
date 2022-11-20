@@ -5,13 +5,13 @@
     <title>{{ title }}</title>
 </head>
 <body>
-{% if menu -%}
+
 	<ul class="menu">
         <li><a href="{{ url_for('index') }}">Главная</a></li>
         <li><a href="{{ url_for('register') }}">Регистрация</a></li>
 	</ul>
 	<div class="clear"></div>
-{%- endif -%}
+
 <div class="content">
 {% block content -%}
 {% endblock %}

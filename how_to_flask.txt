@@ -10,5 +10,10 @@ Flask - микрофреймворк
 9. Использование WTForms: pip install flask_wtf
 10. pip install email-validator
 11. Flask #20: Blueprint - что это такое, где и как использовать
-
+12. pip install Flask-SQLAlchemy
+в pytharm-Console
+>>> from app import db, app
+>>> with app.app_context():
+...     db.create_all()
+enter - база данных создается в папке \instance\
 
